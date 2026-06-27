@@ -8,7 +8,7 @@ Reveal.initialize({
   disableLayout: false,
 
   hash: true,            // deep-link to slides via URL
-  controls: true,
+  controls: false,       // hide nav arrows; page number only
   controlsLayout: 'bottom-right',
   progress: true,
   slideNumber: 'c/t',    // current / total

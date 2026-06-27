@@ -132,13 +132,13 @@
 .reveal .progress { color: var(--amber); height: 4px; }
 .reveal .controls { color: var(--amber); }
 
-/* slide numbers — moved to bottom-left so it doesn't overlap the nav arrows */
+/* slide numbers — arrows are hidden, so place at bottom-right */
 .reveal .slide-number {
   background: transparent;
   color: var(--text-faint);
-  font-size: 16px;
-  left: 24px;
-  right: auto;
+  font-size: 18px;
+  right: 24px;
+  left: auto;
   bottom: 18px;
 }
 
@@ -179,6 +179,7 @@
   margin: 0 auto 18px;
   border-radius: 14px;
   padding: 0;
+  background: none !important;
   box-shadow: 0 16px 38px rgba(0,0,0,0.5);
 }
 .spk-photo {
@@ -240,6 +241,7 @@
   display: inline-block;     /* shrink to the image, don't stretch */
   border-radius: 12px;
   padding: 0;
+  background: none !important;
   box-shadow: 0 18px 45px rgba(0,0,0,0.6);
   line-height: 0;
 }
