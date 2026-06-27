@@ -1,0 +1,1162 @@
+/* ============================================================
+   Higher Studies in Japan — Webinar Deck Theme
+   Matches the event banner: charcoal + amber/orange, IEEE style
+   Optimized for online / screen-share (large fonts, high contrast)
+   ============================================================ */
+
+:root {
+  --bg-dark:      #1c1c1e;
+  --bg-darker:    #141416;
+  --bg-panel:     #26262a;
+  --amber:        #f5a623;
+  --amber-bright: #ffb733;
+  --amber-soft:   rgba(245, 166, 35, 0.14);
+  --text:         #f4f4f5;
+  --text-dim:     #b9b9bf;
+  --text-faint:   #85858c;
+  --line:         rgba(245, 166, 35, 0.35);
+}
+
+/* ---------- Base reveal overrides ---------- */
+.reveal {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 34px;            /* large base for screen-share */
+  color: var(--text);
+  font-weight: 400;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  height: 720px;            /* logical slide height — Reveal scales this to fit */
+  padding: 36px 76px;
+  box-sizing: border-box;
+}
+
+/* background gradient + faint architectural texture feel */
+.reveal-viewport {
+  background:
+    radial-gradient(circle at 80% -10%, rgba(245,166,35,0.10), transparent 45%),
+    radial-gradient(circle at 0% 110%, rgba(245,166,35,0.06), transparent 40%),
+    linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+}
+
+/* ---------- Headings ---------- */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: none;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.4em;
+}
+
+.reveal h1 { font-size: 2.0em; }
+.reveal h2 { font-size: 1.5em; }
+.reveal h3 { font-size: 1.1em; color: var(--amber); font-weight: 700; }
+
+.reveal .accent { color: var(--amber); }
+.reveal .amber  { color: var(--amber); }
+
+/* ---------- Text & lists ---------- */
+.reveal p     { color: var(--text-dim); line-height: 1.45; }
+.reveal strong{ color: var(--text); font-weight: 700; }
+.reveal em    { color: var(--amber-bright); font-style: normal; font-weight: 600; }
+
+.reveal ul, .reveal ol { display: block; margin-left: 1em; }
+.reveal li { color: var(--text-dim); line-height: 1.5; margin-bottom: 0.5em; }
+.reveal li::marker { color: var(--amber); }
+
+.reveal a { color: var(--amber-bright); text-decoration: none; }
+.reveal a:hover { text-decoration: underline; }
+
+/* ---------- Reusable building blocks ---------- */
+
+/* small uppercase eyebrow label */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 0.8em;
+}
+
+/* amber underline accent under a heading */
+.rule {
+  width: 90px;
+  height: 5px;
+  background: var(--amber);
+  border: none;
+  border-radius: 3px;
+  margin: 0.2em 0 0.8em 0;
+}
+
+/* card / panel */
+.card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 4px solid var(--amber);
+  border-radius: 10px;
+  padding: 24px 28px;
+}
+
+/* grid helpers */
+.grid { display: grid; gap: 26px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.center-v { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.center-all { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; }
+
+/* ---------- Footer brand bar on every slide ---------- */
+.reveal .slide-footer {
+  position: absolute;
+  bottom: 18px; left: 6%; right: 6%;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.42em; color: var(--text-faint);
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 10px;
+}
+.reveal .slide-footer .brand { color: var(--amber); font-weight: 700; }
+
+/* ---------- Progress / controls color ---------- */
+.reveal .progress { color: var(--amber); height: 4px; }
+.reveal .controls { color: var(--amber); }
+
+/* slide numbers */
+.reveal .slide-number { background: transparent; color: var(--text-faint); font-size: 16px; }
+
+/* ============================================================
+   SLIDE 2 — Speaker introduction (3 columns: photo | edu | exp)
+   Sizes anchored in px so nothing overflows the frame.
+   ============================================================ */
+.slide-speaker { position: relative; }
+
+.spk-eyebrow {
+  position: absolute;
+  top: 6%; left: 6%;
+  margin: 0;
+}
+
+.slide-speaker .spk-wrap {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr;
+  gap: 46px;
+  align-items: center;
+  height: 100%;
+  padding-top: 40px;   /* clear the eyebrow */
+}
+
+.spk-col { min-width: 0; }
+
+/* divider lines between columns */
+.spk-col + .spk-col {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding-left: 46px;
+}
+
+/* --- column 1: profile --- */
+.spk-profile { text-align: center; }
+
+.spk-photo-frame {
+  width: 215px;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  padding: 5px;
+  background: linear-gradient(150deg, var(--amber), #c97e10);
+  box-shadow: 0 16px 38px rgba(0,0,0,0.5);
+}
+.spk-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 3.6;
+  object-fit: cover;
+  object-position: center 28%;
+  border-radius: 10px;
+}
+
+.spk-name {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+}
+.spk-role { margin: 0; line-height: 1.4; }
+.spk-role .amber { display: block; font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+.spk-role-sub { display: block; color: var(--text-faint); font-size: 13px; margin-top: 3px; }
+
+/* --- columns 2 & 3 --- */
+.spk-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 20px;
+}
+
+/* a single detail item — left amber bar */
+.spk-item {
+  border-left: 3px solid var(--amber);
+  padding: 2px 0 2px 16px;
+}
+.spk-item-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 0 0 4px; line-height: 1.25; }
+.spk-item-sub   { font-size: 14px; color: var(--text-dim); margin: 0; line-height: 1.35; }
+.spk-item-meta  { font-size: 13px; color: var(--amber-bright); margin: 6px 0 0; font-weight: 600; }
+
+/* stacked items with breathing room */
+.spk-exp-grid { display: flex; flex-direction: column; gap: 22px; }
+
+/* ============================================================
+   SLIDE 3 — Lab group photo (serif caption)
+   ============================================================ */
+.slide-lab .lab-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  gap: 22px;
+}
+
+.lab-photo-frame {
+  display: inline-block;     /* shrink to the image, don't stretch */
+  border-radius: 12px;
+  padding: 6px;
+  background: linear-gradient(150deg, var(--amber), #c97e10);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+  line-height: 0;
+}
+.lab-photo {
+  display: block;
+  height: 440px;            /* fixed against the 720px slide */
+  width: auto;
+  border-radius: 8px;
+}
+
+.lab-caption {
+  font-family: 'Cambria', 'Times New Roman', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 2px;
+  letter-spacing: 0.3px;
+}
+.lab-subcaption {
+  font-family: 'Cambria', 'Times New Roman', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--amber);
+  margin: 0;
+}
+
+/* ============================================================
+   SLIDE 4 — Why choose Japan (icon card grid)
+   ============================================================ */
+.slide-why {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.why-head { text-align: center; margin-bottom: 26px; }
+.why-head .eyebrow { margin-bottom: 14px; }
+.why-title {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.why-card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-top: 3px solid var(--amber);
+  border-radius: 12px;
+  padding: 18px 20px 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+.why-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--amber);
+  font-family: 'Cambria', Georgia, serif;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.why-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+.why-card-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-dim);
+  margin: 0;
+}
+.why-card-text strong { color: var(--amber-bright); }
+
+.why-stat {
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-dim);
+  margin: 24px 0 0;
+}
+.why-stat .amber { font-weight: 800; font-size: 22px; }
+
+/* ============================================================
+   SLIDE 5 — Economic Factors (cost vs. scholarships)
+   ============================================================ */
+.slide-econ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.econ-head { text-align: center; margin-bottom: 22px; }
+.econ-head .eyebrow { margin-bottom: 12px; }
+.econ-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+.econ-body {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.econ-block-label {
+  font-size: 13px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--amber);
+  margin: 0 0 16px;
+}
+.econ-block-label.green { color: #5cc88a; }
+
+/* --- left: costs --- */
+.econ-cost {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.econ-cost-list { list-style: none; margin: 0; padding: 0; }
+.econ-cost-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--text);
+}
+.econ-bullet {
+  flex: 0 0 9px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+.econ-bullet.red  { background: #e5564b; }
+.econ-bullet.blue { background: #4f9be8; }
+.econ-cost-txt strong { color: var(--amber-bright); }
+.econ-cost-txt.blue-txt { color: #9cc7f2; }
+.econ-cost-txt.blue-txt strong { color: #cfe2f7; }
+
+.econ-tip {
+  margin-top: auto;
+  font-size: 13px;
+  color: #5cc88a;
+  border: 1px solid rgba(92,200,138,0.4);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-style: italic;
+}
+
+/* --- right: scholarships table --- */
+.econ-sch {
+  display: flex;
+  flex-direction: column;
+}
+.econ-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.econ-table th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-align: left;
+  padding: 0 12px 12px;
+  border-bottom: 2px solid var(--line);
+}
+.econ-table th.ec-tui, .econ-table th.ec-sti { text-align: right; }
+.econ-table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 15px;
+  vertical-align: middle;
+}
+.econ-table tr:last-child td { border-bottom: none; }
+.econ-table .ec-name { color: var(--text); font-weight: 700; }
+.econ-table .ec-tui  { color: var(--text-dim); text-align: right; font-size: 14px; }
+.econ-table .ec-sti  { color: var(--amber-bright); text-align: right; font-weight: 700; white-space: nowrap; }
+
+.econ-foot {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  margin: 20px 0 0;
+}
+
+/* ============================================================
+   SLIDE 6 — MEXT two tracks overview
+   ============================================================ */
+.slide-tracks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.trk-head { text-align: center; margin-bottom: 26px; }
+.trk-head .eyebrow { margin-bottom: 12px; }
+.trk-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+.trk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.trk-card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 4px solid var(--amber);
+  border-radius: 14px;
+  padding: 24px 28px 26px;
+}
+
+.trk-card-head { margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.trk-badge {
+  display: inline-block;
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--amber);
+  background: var(--amber-soft);
+  padding: 4px 12px; border-radius: 4px;
+  margin-bottom: 12px;
+}
+.trk-name { font-size: 25px; font-weight: 800; color: var(--text); margin: 0 0 5px; letter-spacing: -0.3px; }
+.trk-tag { font-size: 14px; color: var(--text-dim); margin: 0; font-style: italic; }
+
+.trk-list { list-style: none; margin: 0; padding: 0; }
+.trk-list li {
+  font-size: 15px;
+  color: var(--text);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.3;
+  margin: 0;
+}
+.trk-list li:last-child { border-bottom: none; }
+.trk-k {
+  display: inline-block;
+  width: 118px;
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.trk-foot {
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 24px 0 0;
+}
+.trk-foot .amber { font-weight: 700; }
+
+/* ============================================================
+   SLIDE 7 — Embassy track in Bangladesh (infographic flow)
+   ============================================================ */
+.slide-embd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.embd-head { text-align: center; margin-bottom: 44px; }
+.embd-head .eyebrow { margin-bottom: 12px; }
+.embd-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+/* --- horizontal step flow --- */
+.embd-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 46px;
+}
+
+.embd-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 130px;
+}
+.embd-circle {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800;
+  color: var(--amber);
+  background: var(--bg-panel);
+  border: 2px solid var(--line);
+  margin-bottom: 14px;
+}
+.embd-step.highlight .embd-circle {
+  color: #1c1c1e;
+  background: var(--amber);
+  border-color: var(--amber);
+  box-shadow: 0 0 24px rgba(245,166,35,0.5);
+}
+.embd-step-title { font-size: 16px; font-weight: 700; color: var(--text); margin: 0 0 3px; line-height: 1.2; }
+.embd-step-sub { font-size: 12px; color: var(--text-faint); margin: 0; line-height: 1.25; }
+
+.embd-arrow {
+  flex: 1;
+  max-width: 46px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--line), rgba(245,166,35,0.15));
+  margin-top: 28px;
+  position: relative;
+}
+.embd-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px; top: -3px;
+  border-left: 7px solid var(--amber);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  opacity: 0.6;
+}
+
+/* --- key stat callouts --- */
+.embd-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.embd-stat {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 3px solid var(--amber);
+  border-radius: 12px;
+  padding: 18px 10px;
+  text-align: center;
+}
+.embd-stat-num {
+  font-size: 30px; font-weight: 900;
+  color: var(--amber-bright);
+  margin: 0 0 4px; line-height: 1;
+}
+.embd-stat-label {
+  font-size: 12px; color: var(--text-dim);
+  margin: 0; letter-spacing: 0.5px;
+  text-transform: uppercase; font-weight: 600;
+}
+
+/* ============================================================
+   SLIDE 8 — Semesters & intakes in Japan
+   ============================================================ */
+.slide-sem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.sem-head { text-align: center; margin-bottom: 30px; }
+.sem-head .eyebrow { margin-bottom: 12px; }
+.sem-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+/* calendar bar */
+.sem-cal {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.sem-month {
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #14241a;
+}
+.sem-month.sp  { background: #a3d977; }   /* spring - light green */
+.sem-month.fa  { background: #3a9d5d; color: #eafff1; }  /* fall - dark green */
+.sem-month.vac { background: #2c2c30; color: var(--text-faint); }  /* vacation */
+
+/* legend */
+.sem-legend {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  margin-bottom: 30px;
+}
+.sem-leg {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 15px; color: var(--text-dim);
+}
+.sem-sw { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
+.sem-sw.sp  { background: #a3d977; }
+.sem-sw.fa  { background: #3a9d5d; }
+.sem-sw.vac { background: #2c2c30; border: 1px solid rgba(255,255,255,0.15); }
+
+/* two intakes */
+.sem-intakes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.sem-intake {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 18px 24px;
+}
+.sem-intake-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px;
+  margin: 0 0 10px;
+}
+.sem-intake-tag.spring { color: #14241a; background: #a3d977; }
+.sem-intake-tag.fall   { color: #eafff1; background: #3a9d5d; }
+.sem-intake-month {
+  font-size: 30px; font-weight: 900; color: var(--text);
+  margin: 0; line-height: 1; display: inline-block;
+}
+.sem-intake-name {
+  font-size: 15px; color: var(--amber); font-weight: 700;
+  margin: 4px 0 8px;
+}
+.sem-intake-note { font-size: 13px; color: var(--text-dim); margin: 0; line-height: 1.4; }
+
+.sem-foot {
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-dim);
+  margin: 26px 0 0;
+}
+.sem-foot .amber { font-weight: 700; }
+
+/* ============================================================
+   SLIDE 9 — Embassy track timeline (2027 intake)
+   ============================================================ */
+.slide-tl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.tl-head { text-align: center; margin-bottom: 34px; }
+.tl-head .eyebrow { margin-bottom: 12px; }
+.tl-title { font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+/* calendar rows */
+.tl-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.tl-year {
+  width: 64px;
+  flex: 0 0 64px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-faint);
+  font-style: italic;
+  text-align: right;
+}
+.tl-cal {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 5px;
+}
+.tl-m {
+  position: relative;
+  height: 52px;
+  border-radius: 6px;
+  background: #2a2a2e;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+/* month label from data attribute */
+.tl-m::before {
+  content: attr(data-m);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-faint);
+}
+/* phase colors */
+.tl-m.c-apply  { background: #a3d977; border-color: transparent; }
+.tl-m.c-exam   { background: #3a9d5d; border-color: transparent; }
+.tl-m.c-viva   { background: #4f9be8; border-color: transparent; }
+.tl-m.c-result { background: #8a8a90; border-color: transparent; }
+.tl-m.c-place  { background: #c98a2e; border-color: transparent; }
+.tl-m.c-visa   { background: #b65fbf; border-color: transparent; }
+.tl-m.c-class  { background: #e5564b; border-color: transparent; }
+/* slide 11 extra phases */
+.tl-m.c-ielts  { background: #e8c84f; border-color: transparent; }
+.tl-m.c-prof   { background: #4f9be8; border-color: transparent; }
+.tl-m.c-portal { background: #3a9d5d; border-color: transparent; }
+.tl-m.c-exam2  { background: #d98a3a; border-color: transparent; }
+/* darken label on colored cells for contrast */
+.tl-m.c-apply::before, .tl-m.c-exam::before, .tl-m.c-viva::before,
+.tl-m.c-result::before, .tl-m.c-place::before, .tl-m.c-visa::before,
+.tl-m.c-class::before, .tl-m.c-ielts::before, .tl-m.c-prof::before,
+.tl-m.c-portal::before, .tl-m.c-exam2::before { color: #16140f; }
+
+/* legend */
+.tl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 26px;
+  margin-top: 30px;
+  padding: 0 30px;
+}
+.tl-leg {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 14px; color: var(--text-dim);
+}
+.tl-sw { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
+.tl-sw.c-apply  { background: #a3d977; }
+.tl-sw.c-exam   { background: #3a9d5d; }
+.tl-sw.c-viva   { background: #4f9be8; }
+.tl-sw.c-result { background: #8a8a90; }
+.tl-sw.c-place  { background: #c98a2e; }
+.tl-sw.c-visa   { background: #b65fbf; }
+.tl-sw.c-class  { background: #e5564b; }
+.tl-sw.c-ielts  { background: #e8c84f; }
+.tl-sw.c-prof   { background: #4f9be8; }
+.tl-sw.c-portal { background: #3a9d5d; }
+.tl-sw.c-exam2  { background: #d98a3a; }
+
+/* Slide 9 footer note */
+.tl-foot {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 24px 0 0;
+}
+.tl-foot .amber { font-weight: 700; }
+
+/* ============================================================
+   SLIDE 13 — Eligibility & required documents
+   ============================================================ */
+.slide-elig {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.elig-head { text-align: center; margin-bottom: 28px; }
+.elig-head .eyebrow { margin-bottom: 12px; }
+.elig-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+.elig-body {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.elig-label {
+  font-size: 13px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--amber);
+  margin: 0 0 18px;
+}
+
+/* left: eligibility list */
+.elig-list { list-style: none; margin: 0; padding: 0; }
+.elig-list li {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.35;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.elig-list li:last-child { border-bottom: none; }
+.elig-k {
+  display: inline-block;
+  width: 108px;
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  vertical-align: top;
+}
+
+/* right: document chips */
+.elig-docs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+.elig-doc {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--amber);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+}
+
+.elig-foot {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-faint);
+  margin: 26px 0 0;
+}
+
+/* ============================================================
+   SLIDE 14 — Choosing a lab & emailing professors
+   ============================================================ */
+.slide-prof {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.prof-head { text-align: center; margin-bottom: 30px; }
+.prof-head .eyebrow { margin-bottom: 12px; }
+.prof-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+.prof-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+.prof-col + .prof-col {
+  border-left: 1px solid rgba(255,255,255,0.08);
+  padding-left: 44px;
+}
+
+.prof-label {
+  font-size: 13px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--amber);
+  margin: 0 0 18px;
+}
+
+.prof-list { list-style: none; margin: 0; padding: 0; }
+.prof-list li {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.35;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.prof-list li:last-child { border-bottom: none; }
+.prof-k {
+  display: inline-block;
+  width: 110px;
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  vertical-align: top;
+}
+
+.prof-foot {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 28px 0 0;
+}
+.prof-foot .amber { font-weight: 700; }
+
+/* ============================================================
+   SLIDE 16 — Research culture & academic life
+   ============================================================ */
+.slide-cult {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.cult-head { text-align: center; margin-bottom: 30px; }
+.cult-head .eyebrow { margin-bottom: 12px; }
+.cult-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+/* two hero pillars */
+.cult-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+.cult-pillar {
+  background: linear-gradient(160deg, rgba(245,166,35,0.14), rgba(245,166,35,0.03));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+}
+.cult-pillar-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--amber);
+  background: var(--amber-soft);
+  padding: 4px 10px; border-radius: 4px;
+  margin: 0 0 12px;
+}
+.cult-pillar-title {
+  font-size: 23px; font-weight: 800; color: var(--text);
+  margin: 0 0 10px; letter-spacing: -0.3px;
+}
+.cult-pillar-text {
+  font-size: 15px; color: var(--text-dim);
+  margin: 0; line-height: 1.45;
+}
+
+/* supporting chips */
+.cult-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.cult-chip {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--amber);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.3;
+}
+.cult-chip-k {
+  display: block;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+/* ============================================================
+   SLIDE 17 — Student life & living expenses
+   ============================================================ */
+.slide-life {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 720px;
+}
+
+.life-head { text-align: center; margin-bottom: 24px; }
+.life-head .eyebrow { margin-bottom: 12px; }
+.life-title { font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -0.4px; }
+
+.life-body {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* --- left: budget --- */
+.life-budget {
+  background: var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+}
+.life-stipend {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 12px; margin-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+}
+.life-stipend-label { font-size: 14px; color: var(--text); font-weight: 600; }
+.life-stipend-amt { font-size: 26px; font-weight: 900; color: var(--amber); }
+.life-stipend-amt span { font-size: 13px; color: var(--text-faint); font-weight: 500; }
+
+.life-table { width: 100%; border-collapse: collapse; }
+.life-table td { padding: 8px 0; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.life-table tr:last-child td { border-bottom: none; }
+.lt-k { color: var(--text-dim); }
+.lt-v { color: var(--text); text-align: right; font-weight: 600; white-space: nowrap; }
+
+.life-save {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: auto; padding-top: 12px;
+  border-top: 2px solid var(--line);
+}
+.life-save-label { font-size: 14px; color: #5cc88a; font-weight: 600; }
+.life-save-amt { font-size: 24px; font-weight: 900; color: #5cc88a; }
+.life-save-amt span { font-size: 12px; color: var(--text-faint); font-weight: 500; }
+
+/* --- right: work + tips --- */
+.life-right { display: flex; flex-direction: column; gap: 18px; }
+.life-work {
+  background: linear-gradient(160deg, rgba(245,166,35,0.16), rgba(245,166,35,0.03));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 22px;
+}
+.life-work-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--amber); margin: 0 0 4px;
+}
+.life-work-big { font-size: 34px; font-weight: 900; color: var(--text); margin: 0; line-height: 1; }
+.life-work-big span { font-size: 16px; color: var(--text-faint); font-weight: 600; }
+.life-work-sub { font-size: 14px; color: var(--text-dim); margin: 8px 0 0; line-height: 1.4; }
+.life-work-sub strong { color: var(--amber-bright); }
+
+.life-tips { display: flex; flex-direction: column; gap: 10px; }
+.life-tip {
+  font-size: 13.5px; color: var(--text-dim); margin: 0; line-height: 1.35;
+  border-left: 3px solid var(--amber); padding-left: 14px;
+}
+.life-tip-k { color: var(--amber); font-weight: 700; }
+
+.life-foot {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 22px 0 0;
+}
+.life-foot .amber { font-weight: 700; }
+
+/* ============================================================
+   SLIDE 18 — Closing slide (Japan, land of flowers)
+   ============================================================ */
+.slide-end {
+  position: relative;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* three-photo background band */
+.end-photos {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.end-photo {
+  background-size: cover;
+  background-position: center;
+}
+
+/* dark gradient veil for text legibility */
+.slide-end::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15,15,17,0.45) 0%, rgba(15,15,17,0.82) 55%, rgba(15,15,17,0.95) 100%);
+}
+
+.end-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 60px;
+}
+
+.end-eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--amber);
+  margin: 0 0 14px;
+}
+.end-title {
+  font-size: 56px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 22px;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+}
+.end-text {
+  font-family: 'Cambria', 'Times New Roman', Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+  color: #e8e8ea;
+  line-height: 1.6;
+  margin: 0 0 30px;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.7);
+}
+.end-thanks {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--amber);
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+.end-sign {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 0;
+}
