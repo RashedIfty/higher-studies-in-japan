@@ -132,8 +132,15 @@
 .reveal .progress { color: var(--amber); height: 4px; }
 .reveal .controls { color: var(--amber); }
 
-/* slide numbers */
-.reveal .slide-number { background: transparent; color: var(--text-faint); font-size: 16px; }
+/* slide numbers — moved to bottom-left so it doesn't overlap the nav arrows */
+.reveal .slide-number {
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 16px;
+  left: 24px;
+  right: auto;
+  bottom: 18px;
+}
 
 /* ============================================================
    SLIDE 2 — Speaker introduction (3 columns: photo | edu | exp)
@@ -171,8 +178,7 @@
   width: 215px;
   margin: 0 auto 18px;
   border-radius: 14px;
-  padding: 5px;
-  background: linear-gradient(150deg, var(--amber), #c97e10);
+  padding: 0;
   box-shadow: 0 16px 38px rgba(0,0,0,0.5);
 }
 .spk-photo {
@@ -233,8 +239,7 @@
 .lab-photo-frame {
   display: inline-block;     /* shrink to the image, don't stretch */
   border-radius: 12px;
-  padding: 6px;
-  background: linear-gradient(150deg, var(--amber), #c97e10);
+  padding: 0;
   box-shadow: 0 18px 45px rgba(0,0,0,0.6);
   line-height: 0;
 }
